@@ -1,0 +1,21 @@
+{
+  "name": "mychatgpt",
+  "private": true,
+  "version": "0.0.0",
+  "type": "nodenext",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/node": "18.14.1",
+    "ant-design-vue": "3.2.15",
+    "unplugin-vue-components": "0.24.0",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "vite": "^4.1.0"
+  }
+}
