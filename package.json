@@ -2,13 +2,14 @@
   "name": "mychatgpt",
   "private": true,
   "version": "0.0.0",
-  "type": "nodenext",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "6.1.0",
     "@types/node": "18.14.1",
     "ant-design-vue": "3.2.15",
     "unplugin-vue-components": "0.24.0",

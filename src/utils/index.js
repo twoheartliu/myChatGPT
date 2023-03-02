@@ -1,19 +1,9 @@
-export async function getChatGPTResponse(prompt) {
-  const apiKey = import.meta.env.VITE_OPENAI_API_KEY
+import { message } from 'ant-design-vue'
 
-  const apiUrl = 'https://api.openai.com/v1/completions'
+export async function getChatGPTResponse(requestBody, apiKey) {
+  // const apiKey = import.meta.env.VITE_OPENAI_API_KEY
 
-  const requestBody = {
-    prompt,
-    model: 'text-davinci-003',
-    max_tokens: 1000,
-    temperature: 0,
-    top_p: 1,
-    n: 1,
-    stream: false,
-    logprobs: null,
-    // stop: '\n',
-  }
+  const apiUrl = 'https://api.openai.com/v1/chat/completions'
 
   const response = await fetch(apiUrl, {
     method: 'POST',
@@ -25,7 +15,13 @@ export async function getChatGPTResponse(prompt) {
   })
 
   const responseBody = await response.json()
-  const res = responseBody.choices[0].text.trim()
+  console.log('re', responseBody)
+  if (responseBody.error) {
+    message.error(responseBody.error.code)
+  }
+
+  const choice = responseBody.choices[0].message
+  const res = JSON.stringify(choice)
   return res
 }
 
@@ -37,3 +33,16 @@ export async function getChatGPTResponse(prompt) {
 // }
 
 // main()
+
+export const setLocalStorage = (key, item) => {
+  localStorage.setItem(key, item)
+}
+export const getLocalStorage = (item) => {
+  return localStorage.getItem(item)
+}
+export const clearLocalStorage = (item) => {
+  localStorage.removeItem(item)
+}
+export const clearAllLocalStorage = () => {
+  localStorage.clear()
+}

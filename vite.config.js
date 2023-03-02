@@ -6,6 +6,11 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    extract: true,
+    sourceMap: false,
+    modules: false,
+  },
   plugins: [
     vue(),
     Components({
